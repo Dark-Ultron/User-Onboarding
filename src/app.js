@@ -1,12 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+require("dotenv").config();
 const userRoutes = require("./routes/userRoutes");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../documentation/swagger.json");
-
-dotenv.config();
 
 const app = express();
 
@@ -27,7 +25,7 @@ db.once("open", () => {
 
 app.use("/users", userRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
