@@ -1,0 +1,393 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "User API",
+      "description": "API for managing users"
+    },
+    "basePath": "/",
+    "paths": {
+      "/users": {
+        "get": {
+          "summary": "Retrieve a list of all users",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "UserGUID": {
+                      "type": "string"
+                    },
+                    "EmailAddress": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "BusinessName": {
+                      "type": "string"
+                    },
+                    "BusinessNumber": {
+                      "type": "string"
+                    },
+                    "UniqueCode": {
+                      "type": "string"
+                    },
+                    "ExternalReference": {
+                      "type": "string"
+                    },
+                    "PhoneNum": {
+                      "type": "string"
+                    },
+                    "HomeAddress": {
+                      "type": "object",
+                      "properties": {
+                        "street": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "zipcode": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "PostalAddress": {
+                      "type": "object",
+                      "properties": {
+                        "street": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "zipcode": {
+                          "type": "string"
+                        },
+                        "country": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "CreationDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "ModifyDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "ArchiveDate": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a new user",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "user",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EmailAddress": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "BusinessName": {
+                    "type": "string"
+                  },
+                  "BusinessNumber": {
+                    "type": "string"
+                  },
+                  "UniqueCode": {
+                    "type": "string"
+                  },
+                  "ExternalReference": {
+                    "type": "string"
+                  },
+                  "PhoneNum": {
+                    "type": "string"
+                  },
+                  "HomeAddress": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "zipcode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "PostalAddress": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "zipcode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "CreationDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ModifyDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ArchiveDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "User created successfully"
+            }
+          }
+        }
+      },
+      "/users/{id}": {
+        "get": {
+          "summary": "Retrieve a specific user by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UserGUID": {
+                    "type": "string"
+                  },
+                  "EmailAddress": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "BusinessName": {
+                    "type": "string"
+                  },
+                  "BusinessNumber": {
+                    "type": "string"
+                  },
+                  "UniqueCode": {
+                    "type": "string"
+                  },
+                  "ExternalReference": {
+                    "type": "string"
+                  },
+                  "PhoneNum": {
+                    "type": "string"
+                  },
+                  "HomeAddress": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "zipcode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "PostalAddress": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "zipcode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "CreationDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ModifyDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ArchiveDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update an existing user by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "user",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "EmailAddress": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "BusinessName": {
+                    "type": "string"
+                  },
+                  "BusinessNumber": {
+                    "type": "string"
+                  },
+                  "UniqueCode": {
+                    "type": "string"
+                  },
+                  "ExternalReference": {
+                    "type": "string"
+                  },
+                  "PhoneNum": {
+                    "type": "string"
+                  },
+                  "HomeAddress": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "zipcode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "PostalAddress": {
+                    "type": "object",
+                    "properties": {
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "zipcode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User updated successfully"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a user by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "User deleted successfully"
+            }
+          }
+        }
+      }
+    }
+  }
+  

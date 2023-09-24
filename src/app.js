@@ -3,10 +3,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const userRoutes = require("./routes/userRoutes");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("../documentation/swagger.json");
 
 dotenv.config();
 
 const app = express();
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(bodyParser.json());
 
