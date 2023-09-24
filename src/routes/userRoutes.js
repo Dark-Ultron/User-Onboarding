@@ -12,12 +12,7 @@ router.post(
   validate(createUserValidation),
   userController.createUser
 );
-router.put(
-  "/:id",
-  createUserValidation,
-  validate(createUserValidation),
-  userController.updateUser
-);
+router.put("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);
 
 module.exports = router;
